@@ -28,6 +28,11 @@ inputs:
     description: 'Message to show if the PR is xl size'
     required: false
     default: ''
+  ignore_files:
+    description: 'Array of files to exclude'
+    required: false
+    default: ''
+  
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -39,6 +44,7 @@ runs:
     - ${{ inputs.l_max_size }}
     - ${{ inputs.fail_if_xl }}
     - ${{ inputs.message_if_xl }}
+    - ${{ inputs.ignore_files }}
 branding:
   icon: 'tag'
   color: 'green'

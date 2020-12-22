@@ -9,7 +9,13 @@ github::calculate_total_modifications() {
   local -r additions=$(echo "$body" | jq '.additions')
   local -r deletions=$(echo "$body" | jq '.deletions')
 
-  echo $((additions + deletions))
+  local total_lines=(additions + deletions)
+  local -a ignore_files=($8)
+
+   
+
+  #echo $((additions + deletions))
+  echo $total_lines
 }
 
 github::add_label_to_pr() {
